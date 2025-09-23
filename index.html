@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+  <title>Wedding Invitation</title>
+   <style>
+        :root {
+            --dark: #242423;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        html, body {
+            min-height: 100vh;
+            overflow: hidden; /* Prevent default scrolling */
+        }
+
+        body {
+            background-color: white;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 14px;
+            color: var(--dark);
+            line-height: 1.3;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .logo,
+        h1,
+        h2 {
+            margin: 0;
+            line-height: 1;
+            font-family: "Cinzel", serif;
+            font-weight: 400;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .stage {
+            position: relative;
+            background: white;
+            visibility: hidden;
+        }
+
+        /* NAV HEADER */
+        .header {
+            position: fixed;
+            left: 40px;
+            top: 24px;
+            z-index: 100;
+            display: flex;
+        }
+        @media all and (max-width: 768px) {
+            .header {
+                display: block;
+                left: 24px;
+            }
+        }
+
+        .logo {
+            font-size: 27px;
+            letter-spacing: -1px;
+        }
+
+        .nav-btn,
+        .nav-btn__svg {
+            width: 56px;
+            height: 30px;
+        }
+
+        .nav-btn {
+            display: block;
+            margin: -2px 0 0 56px;
+        }
+        @media all and (max-width: 768px) {
+            .nav-btn {
+                margin: 18px 0 0 -6px;
+            }
+        }
+
+        .nav-btn__svg {
+            pointer-events: none;
+        }
+
+        /* INTRO */
+        .intro,
+        .footer {
+            height: 100vh;
+        }
+
+        .intro {
+            position: relative;
+            padding: 5vw;
+            background: linear-gradient(90deg, #f3f0f0, #ffffff);
+            overflow: hidden;
+        }
+
+        .intro__content {
+            position: absolute;
+            right: 8%;
+            bottom: 2.5%;
+            z-index: 3;
+        }
+        @media all and (max-width: 768px) {
+            .intro__content {
+                right: auto;
+            }
+        }
+
+        .intro__title {
+            font-size: 12vw;
+            
+            letter-spacing: -1vw;
+            padding-right: 2.3vw;
+            color: #543c02;
+        }
+        @media all and (max-width: 768px) {
+            .intro__title {
+                margin-bottom: 5vh;
+            }
+        }
+
+        .intro__img {
+            position: absolute;
+            width: 35%;
+            max-width: 390px;
+            height: auto;
+        }
+        @media all and (max-width: 768px) {
+            .intro__img {
+                width: 75vw;
+            }
+        }
+
+        .intro__img--1 {
+            z-index: 2;
+            left: 10%;
+            bottom: 35%;
+        }
+        @media all and (max-width: 768px) {
+            .intro__img--1 {
+                left: 50%;
+                bottom: 50vh;
+            }
+        }
+
+        .intro__img--2 {
+            z-index: 1;
+            left: 30%;
+            bottom: 40%;
+        }
+        @media all and (max-width: 768px) {
+            .intro__img--2 {
+                left: 70%;
+                bottom: 60vh;
+            }
+        }
+
+        .intro__txt {
+            color: #4f3905;
+             font-family: "Roboto Slab", serif;
+             text-align: center;
+             font-size: 23px;
+        }
+        @media all and (max-width: 768px) {
+            .intro__txt {
+                max-width: 80vw;
+                margin-left: 5vw;
+            }
+        }
+
+        /* SLIDES */
+        .slide {
+            display: flex;
+            align-items: stretch;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide:nth-of-type(even) {
+            background: #f3f0f0;
+        }
+        @media all and (max-width: 768px) {
+            .slide {
+                display: block;
+                position: relative;
+            }
+        }
+
+        .col {
+            flex-basis: 50%;
+        }
+        @media all and (max-width: 768px) {
+            .col {
+                display: block;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+
+        .col--1 {
+            position: relative;
+            z-index: 1;
+        }
+        .col--2 {
+            position: relative;
+            overflow: hidden;
+        }
+        @media all and (max-width: 768px) {
+            .col--2 {
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .col__content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            height: 100%;
+            padding: 6vw 6vw 10vw;
+        }
+        @media all and (max-width: 768px) {
+            .col__content {
+                width: 80%;
+            }
+        }
+
+        .col__content--1 { background: #ffffff; }
+        .col__content--2 { background: #f3f0f0; }
+        .col__content--3 { background: #ffffff; }
+        .col__content--4 { background: #f3f0f0; }
+        .col__content--5 { background: #ffffff; }
+        .col__content--6 { background: #f3f0f0; }
+
+        .col__content-title {
+            margin: 0 0 2vw;
+            font-size: 7vw;
+            letter-spacing: -0.8vw;
+            line-height: 11vh;
+        }
+
+        .col__content-wrap {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .col__content-wrap-start {
+            display: flex;
+            justify-content: flex-start;
+        }
+        .col__txt-italic{
+             font-style: italic;
+        }
+        .col__content-txt {
+            font-family: "Quicksand", sans-serif;
+            max-width: 28vw;
+            order: 2;
+            margin-left: 32px;
+            font-size: 18px;
+        }
+        .col__content-txt a{
+            color: #000;
+        }
+        .col__content-txt select,
+        .col__content-txt input,
+        .col__content-txt button
+        {
+            font-family: "Quicksand", sans-serif;
+        }
+          .col__content-txt button{
+            margin-top: 20px;
+          }
+        .slide-link {
+            position: relative;
+            order: 1;
+            display: flex;
+            justify-content: flex-end;
+            width: 75px;
+            height: 53px;
+        }
+        .slide-link__circ {
+            width: 53px;
+            height: 53px;
+            border-radius: 50%;
+            border: 1px solid var(--dark);
+        }
+        .slide-link__line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 64px;
+            height: 3px;
+            background: var(--dark);
+        }
+
+        .slide__scroll-link {
+            position: absolute;
+            right: -113px;
+            bottom: 3.5vw;
+            display: block;
+            width: 140px;
+            height: 140px;
+            background-image: linear-gradient(to right, #d3b052, #ab8530);
+            overflow: hidden;
+        }
+        .slide__scroll-line {
+            position: absolute;
+            left: 26px;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+        }
+
+        /* FOOTER */
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: #f3f0f0;
+        }
+
+        .footer__link {
+            font-size: 5vw;
+            color: var(--dark);
+            text-decoration: none;
+            font-family: "Cinzel", serif;
+        }
+
+        .footer__link-top {
+            position: absolute;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: #ab8530;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            font-family: "Cinzel", serif;
+        }
+
+        .footer__link-top-line {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 1px;
+            height: 50px;
+            background: var(--dark);
+        }
+
+        .footer__copyright {
+            position: absolute;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+        }
+    </style>   
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <!-- Add ScrollSmoother plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, ScrollSmoother);
+
+      // Initialize smooth scrolling
+      ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.5, // How long (in seconds) it takes to "catch up" to the native scroll position
+        effects: true, // Look for data-speed and data-lag attributes on elements
+        normalizeScroll: true, // Prevents normalization issues
+        ignoreMobileResize: true, // Improves mobile performance
+      });
+
+      const stage = document.querySelector("#smooth-content");
+      const slides = document.querySelectorAll(".slide");
+      const links = document.querySelectorAll(".slide__scroll-link");
+      const titles = document.querySelectorAll(".col__content-title");
+
+      const introTitle = new SplitText(".intro__title", { type: "lines", linesClass: "intro-line" });
+      const splitTitles = new SplitText(titles, { type: "lines, chars", linesClass: "line", charsClass: "char" });
+
+      let slideID = 0;
+
+      /* HEADER */
+      function initHeader() {
+        let tl = gsap.timeline({ delay: 0.5 });
+        tl.from(".logo", { y: -40, opacity: 0, duration: 2, ease: "power4" })
+          .from(".nav-btn__svg rect", { scale: 0, transformOrigin: "center right", duration: 0.6, ease: "power4", stagger: 0.1 }, 0.6)
+          .to(".nav-rect", { scale: 0.8, transformOrigin: "center left", duration: 0.4, ease: "power2", stagger: 0.1 }, "-=0.6");
+      }
+
+      /* INTRO */
+      function initIntro() {
+        let tl = gsap.timeline({ delay: 1.2 });
+        tl.from(".intro-line", { y: 400, ease: "power4", duration: 3 })
+          .from(".intro__txt", { x: -100, opacity: 0, ease: "power4", duration: 3 }, 0.7)
+          .from(".intro__img--1", { y: 50, opacity: 0, ease: "power2", duration: 10 }, 1)
+          .from(".intro__img--2", { y: -50, opacity: 0, ease: "power2", duration: 10 }, 1);
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".intro",
+            scrub: 1,
+            start: "top bottom",
+            end: "bottom top",
+            markers: false // Set to true for debugging scroll trigger positions
+          }
+        })
+        .to(".intro__title", { x: 400, ease: "power4.in", duration: 3 })
+        .to(".intro__txt", { y: 100, ease: "power4.in", duration: 3 }, 0);
+      }
+
+      /* LINKS */
+      function initLinks() {
+        links.forEach((link, index) => {
+          let linkST = link.querySelector(".slide__scroll-line");
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            // Use ScrollSmoother's scrollTo method for smooth scrolling
+            ScrollSmoother.get().scrollTo("#slide-" + (index + 2), true, "center center");
+            slideID++;
+          });
+          link.addEventListener("mouseover", () => {
+            gsap.to(linkST, { y: 40, duration: 0.6, ease: "power4" });
+          });
+          link.addEventListener("mouseout", () => {
+            gsap.to(linkST, { y: 0, duration: 0.6, ease: "power4" });
+          });
+        });
+
+        let top = document.querySelector(".footer__link-top");
+        top.addEventListener("click", (e) => {
+          e.preventDefault();
+          scrollTop();
+        });
+      }
+
+      /* SLIDES */
+      function initSlides() {
+        slides.forEach((slide) => {
+          let tl = gsap.timeline({ 
+            scrollTrigger: { 
+              trigger: slide, 
+              start: "40% 50%",
+              toggleActions: "play none none reverse" 
+            } 
+          });
+          tl.from(slide.querySelectorAll(".col__content-title"), { y: "+=5vh", duration: 2.5, ease: "power4" })
+            .from(slide.querySelectorAll(".line__inner"), { y: 200, duration: 2, ease: "power4", stagger: 0.1 }, 0)
+            .from(slide.querySelectorAll(".col__content-txt"), { x: 100, y: 50, opacity: 0, duration: 2, ease: "power4" }, 0.4);
+        });
+
+        gsap.from(".footer__link", {
+          scrollTrigger: { trigger: ".footer", scrub: 2, start: "50% 100%", end: "0% 0%" },
+          y: "20vh",
+          ease: "sine"
+        });
+      }
+
+      /* PARALLAX */
+      function initParallax() {
+        slides.forEach((slide) => {
+          let imageWrappers = slide.querySelectorAll(".col__image-wrap");
+          gsap.fromTo(imageWrappers, { y: "-30vh" }, {
+            y: "30vh",
+            scrollTrigger: { trigger: slide, scrub: true, start: "top bottom" },
+            ease: "none"
+          });
+        });
+      }
+
+      function scrollTop() {
+        ScrollSmoother.get().scrollTo("#slide-0", true, "center center");
+      }
+
+      function initKeys() {
+        document.addEventListener("keydown", (e) => {
+          if (e.keyCode == 40) { // down
+            if (slideID <= slides.length) {
+              slideID++;
+              ScrollSmoother.get().scrollTo("#slide-" + slideID, true, "center center");
+            }
+          } else if (e.keyCode == 38) { // up
+            slideID = 0;
+            scrollTop();
+          }
+        });
+      }
+
+      function init() {
+        if (!stage) return;
+        gsap.set(stage, { autoAlpha: 1 });
+        initHeader();
+        initIntro();
+        initLinks();
+        initSlides();
+        initParallax();
+        initKeys();
+      }
+
+      init();
+    });
+  </script>
+</head>
+<body>
+  <div id="smooth-wrapper">
+    <div class="stage" id="smooth-content">
+
+      <!-- HEADER -->
+      <header class="header">
+        <div class="logo"><img style="width: 2em;" src="img/plai-logo-gold.png" alt="plai logo"></div>
+     
+      </header>
+
+      <section class="intro slide--0" id="slide-0">
+            <div class="intro__content">
+                <h1 class="intro__title">Joey & Mae</h1>
+                <h3 class="intro__txt">June 15, 2025 | Antipolo Rizal</h3>
+                <h3 class="intro__txt">We’re tying the knot! Join us as we celebrate our love.</h3>
+            </div>
+            <img class="intro__img intro__img--1" src="img/bride.webp" />
+            <img class="intro__img intro__img--2" src="img/groom.webp" />
+        </section>
+
+        <section class="slide slide--1" id="slide-1">
+            <div class="col col--1">
+                <div class="col__content col__content--1">
+                    <h2 class="col__content-title"><span class="line__inner">Our</span><br /><span class="line__inner">Story</span></h2>
+                    <div class="col__content-wrap">
+                        <p class="col__content-txt col__txt-italic">It all began when we crossed paths in the most unexpected way. What started as a simple hello soon grew into late-night conversations, countless adventures, and a love that only deepened with time. From spontaneous road trips to quiet coffee dates, every moment became a cherished memory. On a sunny afternoon, surrounded by laughter and love, Joey got down on one knee and asked Mae to spend forever with him—and she said yes! Now, as we step into this new chapter together, we can’t wait to celebrate our love with all of you.</p>
+                        <a href="#" class="slide-link">
+                            <div class="slide-link__circ"></div>
+                            <div class="slide-link__line"></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#slide-2" class="slide__scroll-link">
+                    <div class="slide__scroll-line"></div>
+                </a>
+            </div>
+            <div class="col col--2">
+                <div class="col__image-wrap">
+                    <img class="img img--1" src="img/our-story.webp" />
+                </div>
+            </div>
+        </section>
+
+        <section class="slide slide--2" id="slide-2">
+            <div class="col col--1">
+                <div class="col__content col__content--2">
+                    <h2 class="col__content-title"><span class="line__inner">The</span><br /><span class="line__inner">Wedding</span></h2>
+                    <div class="col__content-wrap-start">
+                        <div class="col__content-txt">
+                           <h4>Ceremony</h4>
+                           <ul style="list-style: none;">
+                            <li>📅 Date: Saturday, June 15, 2021</li>
+                            <li>🕒 Time: 3:00 PM</li>
+                            <li>📍 Venue: 106 Sumulong Hwy, Antipolo City</li>
+                            <li>📍 <a target="_blank" href="https://maps.app.goo.gl/BsCUypYjbf7HBKve9">View on Google Maps</a></li>
+                           </ul>
+                           <h4>Reception</h4>
+                           <ul style="list-style: none;">
+                            <li>🍽️ Venue: Villa Ardin Events Place</li>
+                            <li>📍 <a target="_blank" href="https://maps.app.goo.gl/DfcWKh4zBwk2wDG76">View on Google Maps</a></li>
+                            <li>🕕 Start Time: 6:00 PM</li>
+                           </ul>
+                        </div>
+                        <a href="#" class="slide-link">
+                            <div class="slide-link__circ"></div>
+                            <div class="slide-link__line"></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#slide-3" class="slide__scroll-link">
+                    <div class="slide__scroll-line"></div>
+                </a>
+            </div>
+            <div class="col col--2">
+                <div class="col__image-wrap">
+                    <img class="img img--1" src="img/the-wedding.webp" />
+                </div>
+            </div>
+        </section>
+
+        <section class="slide slide--3" id="slide-3">
+            <div class="col col--1">
+                <div class="col__content col__content--3">
+                    <h2 class="col__content-title"><span class="line__inner">Wedding</span><br /><span class="line__inner">Party</span></h2>
+                    <div class="col__content-wrap-start">
+                         <div class="col__content-txt">
+                           <h4>Bride’s Side</h4>
+                           <ul style="list-style: none;">
+                            <li>Maid of Honor – Sarah Lopez</li>
+                            <li>Bridesmaid – Maria Santos</li>
+                            <li>Bridesmaid – Jenny Cruz</li>
+                           </ul>
+                           <h4>Groom’s Side</h4>
+                           <ul style="list-style: none;">
+                            <li>Best Man – Mark Rivera</li>
+                            <li>Groomsman – Carlos Dela Cruz</li>
+                            <li>Groomsman – Daniel Reyes</li>
+                           </ul>
+                           <h4>Principal Sponsors</h4>
+                           <ul style="list-style: none;">
+                            <li>Mr. Antonio Reyes – Mrs. Lourdes Rivera</li>
+                            <li>Mr. Roberto Cruz – Mrs. Elena Dela Rosa</li>
+                            <li>Mr. Miguel Santos – Mrs. Carmela Tan</li>
+                           </ul>
+                        </div>
+                        <a href="#" class="slide-link">
+                            <div class="slide-link__circ"></div>
+                            <div class="slide-link__line"></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#slide-4" class="slide__scroll-link">
+                    <div class="slide__scroll-line"></div>
+                </a>
+            </div>
+            <div class="col col--2">
+                <div class="col__image-wrap">
+                    <img class="img img--1" src="img/wedding-party.webp" />
+                </div>
+            </div>
+        </section>
+
+        <section class="slide slide--4" id="slide-4">
+            <div class="col col--1">
+                <div class="col__content col__content--4">
+                    <h2 class="col__content-title"><span class="line__inner">Schedule / </span><br /><span class="line__inner">Itinerary</span></h2>
+                          <div class="col__content-wrap-start">
+                         <div class="col__content-txt">
+                           <h4>Ceremony</h4>
+                           <ul style="list-style: none;">
+                            <li>📍 San Pedro Calungsod Parish</li>
+                            <li>🕒 3:00 PM – Wedding Mass & Vows</li>
+                           </ul>
+                            <h4>Cocktail Hour</h4>
+                           <ul style="list-style: none;">
+                            <li>📍 Villa Ardin Events Place</li>
+                            <li>🕓 5:00 PM – Welcome drinks & light snacks</li>
+                           </ul>
+                            <h4>Reception</h4>
+                           <ul style="list-style: none;">
+                            <li>📍 Villa Ardin Events Place</li>
+                            <li>🕖 6:00 PM – Grand entrance & dinner</li>
+                            <li>🕖 7:00 PM – Toasts & program</li>
+                            <li>🕗 8:00 PM – First dance & open dance floor</li>
+                            <li>🕘 10:00 PM – Closing program & send-off</li>
+                           </ul>
+                        </div>
+                        <a href="#" class="slide-link">
+                            <div class="slide-link__circ"></div>
+                            <div class="slide-link__line"></div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <a href="#slide-5" class="slide__scroll-link">
+                    <div class="slide__scroll-line"></div>
+                </a>
+            </div>
+            <div class="col col--2">
+                <div class="col__image-wrap">
+                    <img class="img img--1" src="img/schedule.webp" />
+                </div>
+            </div>
+        </section>
+
+        <section class="slide slide--5" id="slide-5">
+            <div class="col col--1">
+                <div class="col__content col__content--5">
+                    <h2 class="col__content-title"><span class="line__inner">RSVP</span></h2>
+                    <div class="col__content-wrap-start">
+                        <div class="col__content-txt">
+                           <section id="rsvp">
+  <p>We would love to celebrate with you!<br> Please let us know if you can join us by filling out the form below.</p>
+  
+  <form action="submit_rsvp.php" method="POST" style="max-width:500px;margin:20px auto;">
+    
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required style="width:100%;padding:8px;margin:5px 0;"><br>
+    
+    <label for="attendance">Will you attend?</label><br>
+    <select id="attendance" name="attendance" required style="width:100%;padding:8px;margin:5px 0;">
+      <option value="">-- Select an option --</option>
+      <option value="yes">Yes, I’ll be there!</option>
+      <option value="no">Sorry, I can’t make it</option>
+    </select><br>
+    
+    <label for="guests">Number of Guests:</label><br>
+    <input type="number" id="guests" name="guests" min="1" max="10" style="width:100%;padding:8px;margin:5px 0;"><br>
+    
+    <label for="diet">Dietary Restrictions (optional):</label><br>
+    <input type="text" id="diet" name="diet" placeholder="e.g., Vegetarian, Halal" style="width:100%;padding:8px;margin:5px 0;"><br>
+    
+    <button type="submit" style="background:#d4a373;color:#fff;padding:10px 20px;border:none;border-radius:5px;cursor:pointer;">
+      Submit RSVP
+    </button>
+  </form>
+</section>
+
+                        </div>
+                        <a href="#" class="slide-link">
+                            <div class="slide-link__circ"></div>
+                            <div class="slide-link__line"></div>
+                        </a>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="col col--2">
+                <div class="col__image-wrap">
+                    <img class="img img--1" src="img/rsvp.webp" />
+                </div>
+            </div>
+        </section>
+
+
+
+
+      <footer class="footer" id="slide-7">
+        <a class="footer__link" href="https://letsplai.io/" target="_blank"><img src="img/plai-logo-gold.png" alt="plai logo"></a>
+        <a class="footer__link-top" href="#slide-0">Top<span class="footer__link-top-line"></span></a>
+        <p class="footer__copyright">All images © 2025 PLAI Wedding Website</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
