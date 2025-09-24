@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Wedding Invitation</title>
 <style>
     * {
@@ -93,7 +93,7 @@ section .bg h2 {
 .section-f-container-e{
     color: #fff;
     display: flex;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Montserrat", sans-serif;
     justify-content: end;
     width: 1200px;
 }
@@ -101,7 +101,7 @@ section .bg h2 {
 .section-f-container{
    color: #fff;
     display: flex;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Montserrat", sans-serif;
   
     width: 1200px;
 }
@@ -110,28 +110,46 @@ section .bg .clip-text {
 }
 .intro--description{
   color: #3f1f09;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 .intro--description-light{
   color: #fff;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   line-height: 28px;
   text-transform: none;
   text-align: center;
+  text-transform: none;
 
 }
 .section-form{
    padding: 30px 30px 50px 30px;
     background: #0000004d;
     color: #fff;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Montserrat", sans-serif;
 }
+.section-form select,
+.section-form input,
+.section-form button,
+.section-form p,
+.section-form label
+  {
+    font-family: "Montserrat", sans-serif;
+    text-transform: none;
+  }
 .section-form form{
   max-width: unset !important;
   margin: 0 !important;
   padding: 0;
+}
+.section-f-container-e ul li,
+.section-f-container ul li
+{
+  text-transform: none;
+}
+.section-f-container-e ul li a{
+  text-decoration: underline;
 }
 .section-form form input,
 .section-form form select
@@ -281,7 +299,7 @@ gotoSection(0, 1);
         <div class="content__wrap">
           <h2 class="section-heading">Our Story</h2>
          <div class="section-content">
-          <p class="intro--description-light">
+          <p class="intro--description-light" style="font-style: italic;">
           It all began when we crossed paths in the most unexpected way.
            What started as a simple hello soon grew into late-night conversations, countless adventures, and a love that only deepened with time. From spontaneous road trips to quiet coffee dates, every moment became a cherished memory. On a sunny afternoon, surrounded by laughter and love, Joey got down on one knee and asked Mae to spend forever with him—and she said yes! Now, as we step into this new chapter together, we can’t wait to celebrate our love with all of you.
         </p>

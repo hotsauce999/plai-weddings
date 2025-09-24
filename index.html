@@ -374,6 +374,91 @@
             bottom: 24px;
             transform: translateX(-50%);
         }
+
+        .countdown-container {
+           
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            position: absolute;
+            right: 8%;
+        }
+
+        .title {
+            color: #d4a76a;
+            font-size: 2.5rem;
+            font-family: "Quicksand", sans-serif;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .time-unit {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .time-value {
+            background: linear-gradient(135deg, #d4a76a, #b8914f);
+            color: white;
+            font-size: 3rem;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 300;
+            padding: 20px 0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(212, 167, 106, 0.3);
+        }
+
+        .time-label {
+            font-family: "Quicksand", sans-serif;
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            font-family: "Quicksand", sans-serif;
+            color: #777;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .time-unit {
+                flex: 0 0 45%;
+                margin: 10px;
+            }
+            
+            .time-value {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .time-unit {
+                flex: 0 0 100%;
+            }
+        }
+        
     </style>   
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -537,11 +622,38 @@
         <div class="logo"><img style="width: 2em;" src="img/plai-logo-gold.png" alt="plai logo"></div>
      
       </header>
-
+       
       <section class="intro slide--0" id="slide-0">
+            <div class="countdown-container">
+        <h1 class="title">Wedding Countdown</h1>
+        
+        <div class="countdown">
+            <div class="time-unit">
+                <div class="time-value" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+        
+        <p class="message" id="message">Counting down to the big day!</p>
+        </div>
             <div class="intro__content">
                 <h1 class="intro__title">Joey & Mae</h1>
-                <h3 class="intro__txt">June 15, 2025 | Antipolo Rizal</h3>
+                <h3 class="intro__txt">September 30, 2025 | Antipolo Rizal</h3>
                 <h3 class="intro__txt">We’re tying the knot! Join us as we celebrate our love.</h3>
             </div>
             <img class="intro__img intro__img--1" src="img/bride.webp" />
@@ -752,5 +864,49 @@
       </footer>
     </div>
   </div>
+ <script>
+        // Set your wedding date here (format: Year, Month-1, Day, Hour, Minute, Second)
+        // September is month 8 (0-indexed: Jan=0, Feb=1, ..., Sep=8)
+        const weddingDate = new Date(2025, 8, 30, 14, 30, 0); // September 30, 2025 at 2:30 PM
+        
+        function updateCountdown() {
+            const now = new Date();
+            const distance = weddingDate - now;
+            
+            console.log("Wedding Date:", weddingDate);
+            console.log("Now:", now);
+            console.log("Distance (ms):", distance);
+            
+            // If the wedding date has passed
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                document.getElementById("message").innerText = "The wedding has arrived! Congratulations!";
+                return;
+            }
+            
+            // Calculate time units correctly
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            console.log("Calculated:", {days, hours, minutes, seconds});
+            
+            // Update the display
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Initial call to display the countdown immediately
+        updateCountdown();
+    </script>
 </body>
 </html>
