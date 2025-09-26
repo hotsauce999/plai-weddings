@@ -196,6 +196,45 @@ section .bg .clip-text {
 h2 * {
   will-change: transform;
 }
+.video-hldr iframe{
+  width: 600px;
+  height: 400px;
+}
+
+@media only screen and (max-width: 500px) {
+  .section-content{
+    width: 100%;
+  }
+  .intro--description-light,
+  .section-f-container-e ul li,
+  .section-f-container ul li
+  {
+    font-size: 14px;
+  }
+  .section-f-container-e {
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+ }
+ .section-f-container{
+  justify-content: center;
+ }
+ .video-hldr iframe{
+  width: 100%;
+  height: 300px;
+  margin: auto;
+}
+.section-form select, .section-form input, .section-form button, .section-form p, .section-form label{
+  font-size: 14px;
+}
+.section-form{
+  margin: 20px;
+}
+}
+
+
+
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Observer.min.js"></script>
@@ -378,8 +417,8 @@ gotoSection(0, 1);
       <div class="bg h-end">
         <div class="content__wrap">
         <h2 class="section-heading">Gallery</h2>
-          <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/yiiWf0StcYw?si=wl_Jrv8cYXD1bveQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="video-hldr">
+            <iframe src="https://www.youtube.com/embed/yiiWf0StcYw?si=wl_Jrv8cYXD1bveQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
          </div>
       </div>
